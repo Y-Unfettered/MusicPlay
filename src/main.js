@@ -5,16 +5,21 @@ import App from './App'
 import router from './router'
 //移动端click的300毫秒延迟处理
 import fastClick from 'fastclick'
+//swiper的使用
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 
 //进行基础的样式处理，保证样式的一致
 import "styles/reset.css";
 //对于移动端border 1px 的处理
 import "styles/border.css";
+//iconfont
 import "styles/iconfont.css";
-
+//swiper
+import 'swiper/dist/css/swiper.css'
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)
+Vue.use(VueAwesomeSwiper)
 
 /* eslint-disable no-new */
 new Vue({
