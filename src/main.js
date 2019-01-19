@@ -7,9 +7,11 @@ import router from './router'
 import fastClick from 'fastclick'
 
 //进行基础的样式处理，保证样式的一致
-import "@/assets/styles/reset.css";
+import "styles/reset.css";
 //对于移动端border 1px 的处理
-import "@/assets/styles/border.css";
+import "styles/border.css";
+import "styles/iconfont.css";
+
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)

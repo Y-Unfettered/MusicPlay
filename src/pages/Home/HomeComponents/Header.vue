@@ -1,0 +1,58 @@
+<template>
+  <div class="header">
+    <div class="header-left">
+        <div class="iconfont back-icon">&#xe62a;</div>
+    </div>
+    <div class="header-input">
+        <span class="iconfont">&#xe62f;</span>
+        输入歌名/歌手</div>
+    <div class="header-right">
+        <span class="iconfont arrow-icon">&#xe74c;</span>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "HomeHeader",
+  data() {
+    return {};
+  }
+};
+</script>
+
+<style lang='stylus' scoped>
+    @import '~styles/varibles.styl';
+    .header
+        display flex
+        height .86rem
+        line-height .86rem
+        background-color $bgColor
+        color #fff
+        .header-left
+            margin-left .1rem
+            width .8rem
+            float left
+            .back-icon
+                text-align: center
+                font-size: .4rem
+        .header-input
+            flex 1
+            height .64rem
+            line-height .64rem
+            margin-top .11rem
+            margin-left .1rem
+            padding-left .2rem
+            background-color #fff
+            border-radius .1rem
+            color #ccc
+        .header-right
+            min-width: 1.04rem
+            padding: 0 .1rem
+            float: right
+            text-align: center
+            color: #fff
+            .arrow-icon
+                font-size: .6rem
+</style>
+
