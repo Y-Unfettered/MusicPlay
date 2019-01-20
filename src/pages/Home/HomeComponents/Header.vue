@@ -7,7 +7,7 @@
         <span class="iconfont">&#xe62f;</span>
         输入歌名/歌手</div>
     <div class="header-right">
-        <span class="iconfont arrow-icon">&#xe74c;</span>
+        <span class="iconfont arrow-icon">&#xe673;</span>
     </div>
   </div>
 </template>
