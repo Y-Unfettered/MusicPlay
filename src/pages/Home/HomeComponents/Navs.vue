@@ -29,15 +29,13 @@ export default {
     @import '~styles/varibles.styl';
     .Navs
         width 100%
-        height 0
-        padding-bottom 34%
         overflow hidden
         border-bottom 0.02rem solid #ccc
         .nasicon
             float left
             width 33.3%
-            padding-bottom 33.3%
             background-color #fff
+            margin-bottom .5rem
             text-align center
             .nasiconbox
                 width: 1.13rem;
