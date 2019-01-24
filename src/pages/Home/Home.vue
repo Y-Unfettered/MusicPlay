@@ -6,6 +6,7 @@
     <home-recommend></home-recommend>
     <home-sole></home-sole>
     <home-radio></home-radio>
+    <home-mv></home-mv>
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import HomeNavs from "./HomeComponents/Navs";
 import HomeRecommend from "./HomeComponents/Recommend";
 import HomeSole from "./HomeComponents/Sole";
 import HomeRadio from "./HomeComponents/Radio";
+import HomeMv from "./HomeComponents/Mv";
 export default {
   name: "Home",
   data() {
@@ -27,7 +29,8 @@ export default {
     HomeNavs,
     HomeRecommend,
     HomeSole,
-    HomeRadio
+    HomeRadio,
+    HomeMv,
   }
 };
 </script>

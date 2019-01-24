@@ -9,7 +9,7 @@
             <div class="radio-item-name">{{item.program.mainSong.artists[0].name}}</div>
           </div>
           <div class="radio-item-introduce">
-            <span>{{item.program.mainSong.name}}</span>
+            <p>{{item.program.mainSong.name}}</p>
           </div>
         </li>
       </ul>
@@ -1592,14 +1592,16 @@ export default {
 
     .radio-item-introduce {
       width: 2.36rem;
-      height: 0.9rem;
+      height: 1rem;
       overflow: hidden;
 
-      span {
-        color: #000;
-        font-size: 0.25rem;
-        line-height: 0.6rem;
-        text-align: left;
+      p {
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          padding: 6px 2px 0 6px;
+          line-height: 1.2;
+          font-size: 13px;
       }
     }
   }
