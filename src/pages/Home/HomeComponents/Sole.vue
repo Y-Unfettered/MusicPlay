@@ -76,7 +76,7 @@ export default {
 <style lang='stylus' scoped>
 .sole {
   width: 100%;
-  height: 7.27rem;
+  height: 9.85rem;
 
   .sole-nav {
     width: 7.2rem;
