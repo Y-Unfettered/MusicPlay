@@ -6,9 +6,9 @@
     <div class="header-input">
         <span class="iconfont">&#xe62f;</span>
         输入歌名/歌手</div>
-    <div class="header-right">
+    <router-link class="header-right" to="/Player">
         <span class="iconfont arrow-icon">&#xe673;</span>
-    </div>
+    </router-link>
   </div>
 </template>
 
