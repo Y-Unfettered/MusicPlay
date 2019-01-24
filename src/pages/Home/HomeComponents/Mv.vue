@@ -5,7 +5,7 @@
             <ul>
                 <li v-for="item in mvData" :key="item.id">
                     <img :src="item.picUrl" alt="">
-                    <p>{{item.copywriter}}</p>
+                    <p>{{item.name}}</p>
                 </li>
             </ul>
         </div>
