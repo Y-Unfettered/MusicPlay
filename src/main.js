@@ -7,6 +7,8 @@ import router from './router'
 import fastClick from 'fastclick'
 //swiper的使用
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+//axiox的引用
+import axios from 'axios'
 
 //进行基础的样式处理，保证样式的一致
 import "styles/reset.css";
@@ -20,6 +22,7 @@ import 'swiper/dist/css/swiper.css'
 Vue.config.productionTip = false
 fastClick.attach(document.body)
 Vue.use(VueAwesomeSwiper)
+axios.defaults.baseURL = 'https://obscure-inlet-76815.herokuapp.com';
 
 /* eslint-disable no-new */
 new Vue({

@@ -13,92 +13,24 @@
 </template>
 
 <script>
+import axios from 'axios'
+import {getMv} from "../../../API/GetData";
 export default {
     name:"HomeMv",
     data(){
         return{
-            mvData:[
-                        {
-            "id": 10847667,
-            "type": 5,
-            "name": "Sola",
-            "copywriter": "编辑推荐：Luis Fonsi新单曲《Sola》MV公开！ ",
-            "picUrl": "http://p1.music.126.net/a0hgZrRN3mufRwQTzF0GAw==/109951163813481908.jpg",
-            "canDislike": false,
-            "duration": 205000,
-            "playCount": 2833,
-            "subed": false,
-            "artists": [
-                {
-                    "id": 38154,
-                    "name": "Luis Fonsi"
-                }
-            ],
-            "artistName": "Luis Fonsi",
-            "artistId": 38154,
-            "alg": "featured"
-        },
-        {
-            "id": 10851201,
-            "type": 5,
-            "name": "Kimagure Gumo",
-            "copywriter": "编辑推荐：《Kimagure Gumo (気まぐれ雲)》预告PV上线！",
-            "picUrl": "http://p1.music.126.net/SrvH2rUyn8oSFZ8SJpnz5A==/109951163811903706.jpg",
-            "canDislike": false,
-            "duration": 158000,
-            "playCount": 174990,
-            "subed": false,
-            "artists": [
-                {
-                    "id": 31328211,
-                    "name": "大野奈々"
-                }
-            ],
-            "artistName": "大野奈々",
-            "artistId": 31328211,
-            "alg": "featured"
-        },
-        {
-            "id": 10851206,
-            "type": 5,
-            "name": "火车向南  思念向北",
-            "copywriter": "最新热门MV推荐",
-            "picUrl": "http://p2.music.126.net/mu4JWwzoQaN96gjJA1SIFg==/109951163812196916.jpg",
-            "canDislike": true,
-            "duration": 240000,
-            "playCount": 5958,
-            "subed": false,
-            "artists": [
-                {
-                    "id": 12094215,
-                    "name": "李冬"
-                }
-            ],
-            "artistName": "李冬",
-            "artistId": 12094215,
-            "alg": "hot_server"
-        },
-        {
-            "id": 10848644,
-            "type": 5,
-            "name": "I Don't Remember Me (Before You) [Live]",
-            "copywriter": "最新热门MV推荐",
-            "picUrl": "http://p2.music.126.net/mIxg405q3TCmhKgbP7_BBw==/109951163812438578.jpg",
-            "canDislike": true,
-            "duration": 222000,
-            "playCount": 2255,
-            "subed": false,
-            "artists": [
-                {
-                    "id": 1131021,
-                    "name": "Brothers Osborne"
-                }
-            ],
-            "artistName": "Brothers Osborne",
-            "artistId": 1131021,
-            "alg": "hot_server"
+            mvData:[]
         }
-            ]
+    },
+    created() {
+        this._getMv();
+    },
+    methods: {
+        _getMv() {
+            getMv().then(res => {
+                let list = res.data.result;
+                this.mvData = list.splice(0);
+            });
         }
     }
 }
