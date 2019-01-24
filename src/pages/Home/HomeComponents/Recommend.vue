@@ -442,9 +442,6 @@ export default {
         if (str.length > 17) {
             str = str.substr(0, 17) + "...";
             item.name = str
-        }else if(str.length < 9){
-            str = str.substr(0, 9) + "............";
-            item.name = str
         }
       });
       return initText
@@ -462,7 +459,7 @@ export default {
 
 .recommend {
   width: 100%;
-  height: 8.3rem;
+  height: 7.8rem;
   overflow: hidden;
 
   .recommend-nav {
@@ -533,8 +530,8 @@ export default {
           height: 1.08rem;
           color: #000;
           font-size: 0.25rem;
+          padding: .1rem 0 0 0.08rem
           display: flex;
-          align-items: center;
           justify-content: space-around;
           line-height: 0.36rem;
           text-align: left;

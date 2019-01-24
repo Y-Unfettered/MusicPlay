@@ -4,7 +4,7 @@
     <home-swiper></home-swiper>
     <home-navs></home-navs>
     <home-recommend></home-recommend>
-    
+    <home-sole></home-sole>
     
   </div>
 </template>
@@ -14,6 +14,7 @@ import HomeHeader from "./HomeComponents/Header";
 import HomeSwiper from "./HomeComponents/Swiper";
 import HomeNavs from "./HomeComponents/Navs";
 import HomeRecommend from "./HomeComponents/Recommend";
+import HomeSole from "./HomeComponents/Sole";
 export default {
   name: "Home",
   data() {
@@ -23,7 +24,8 @@ export default {
     HomeHeader,
     HomeSwiper,
     HomeNavs,
-    HomeRecommend
+    HomeRecommend,
+    HomeSole
   }
 };
 </script>
