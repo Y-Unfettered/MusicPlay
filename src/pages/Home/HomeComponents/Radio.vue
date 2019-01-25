@@ -3,7 +3,7 @@
     <div class="radio-nav">主播电台 ></div>
     <div class="radio-items">
       <ul>
-        <li v-for="item in radioData" :key="item.id">
+        <li v-for="item in list" :key="item.id">
           <div class="radio-item-img">
             <img :src="item.picUrl" alt>
             <div class="radio-item-name">{{item.program.mainSong.artists[0].name}}</div>
@@ -18,25 +18,13 @@
 </template>
 
 <script>
-import axios from 'axios'
-import {getFM} from "../../../API/GetData";
 export default {
   name: "HomeRadio",
+  props: {
+    list: Array
+  },
   data() {
-    return {
-      radioData: []
-    }   
-  },
-  created() {
-    this._getFM();
-  },
-  methods: {
-    _getFM() {
-      getFM().then(res => {
-        let list = res.data.result;
-        this.radioData = list.splice(0);
-      });
-    }
+    return {}   
   }
 };
 </script>

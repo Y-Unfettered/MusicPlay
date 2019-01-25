@@ -3,7 +3,7 @@
         <div class="mv-nav">推荐MV ></div>
         <div class="mv-items">
             <ul>
-                <li v-for="item in mvData" :key="item.id">
+                <li v-for="item in list" :key="item.id">
                     <img :src="item.picUrl" alt="">
                     <p>{{item.name}}</p>
                 </li>
@@ -13,25 +13,13 @@
 </template>
 
 <script>
-import axios from 'axios'
-import {getMv} from "../../../API/GetData";
 export default {
     name:"HomeMv",
+    props: {
+        list: Array
+    },
     data(){
-        return{
-            mvData:[]
-        }
-    },
-    created() {
-        this._getMv();
-    },
-    methods: {
-        _getMv() {
-            getMv().then(res => {
-                let list = res.data.result;
-                this.mvData = list.splice(0);
-            });
-        }
+        return{}
     }
 }
 </script>

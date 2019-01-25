@@ -1,7 +1,7 @@
 <template>
   <div class="sole">
     <div class="sole-nav">独家放送 ></div>
-    <div class="sole-item" v-for="item in soleData" :key="item.id">
+    <div class="sole-item" v-for="item in list" :key="item.id">
       <div class="sole-item-img">
         <img :src="item.picUrl" alt>
       </div>
@@ -11,25 +11,13 @@
 </template>
 
 <script>
-import axios from 'axios'
-import {getSole} from "../../../API/GetData";
 export default {
   name: "HomeSole",
+  props: {
+    list: Array
+  },
   data() {
-    return {
-      soleData: []
-    };
-  },
-  created() {
-    this._getSole();
-  },
-  methods: {
-    _getSole() {
-      getSole().then(res => {
-        let list = res.data.result;
-        this.soleData = list.splice(0);
-      });
-    }
+    return {};
   }
 };
 </script>

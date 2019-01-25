@@ -23,19 +23,18 @@
 </template>
 
 <script>
-import axios from 'axios'
-import {getPersonalized} from "../../../API/GetData";
 export default {
   name: "HomeRecommend",
+  props: {
+    list: Array
+  },
   data() {
-    return {
-      recommendData: []
-    };
+    return {};
   },
   computed: {
     pages() {
       const pages = [];
-      this.recommendData.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 6);
         if (!pages[page]) {
           pages[page] = [];
@@ -43,31 +42,6 @@ export default {
         pages[page].push(item);
       });
       return pages;
-    }
-  },
-  beforeMount() {
-    var initText = this.recommendData;
-    function init(initText) {
-      initText.forEach((item, index) => {
-        var str = item.name;
-        if (str.length > 17) {
-          str = str.substr(0, 17) + "...";
-          item.name = str;
-        }
-      });
-      return initText;
-    }
-    init(initText);
-  },
-  created() {
-    this._getRecommend();
-  },
-  methods: {
-    _getRecommend() {
-      getPersonalized().then(res => {
-        let list = res.data.result;
-        this.recommendData = list.splice(0);
-      });
     }
   }
 };

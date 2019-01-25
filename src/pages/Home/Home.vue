@@ -1,12 +1,12 @@
 <template>
   <div class="home">
     <home-header></home-header>
-    <home-swiper></home-swiper>
-    <home-navs></home-navs>
-    <home-recommend></home-recommend>
-    <home-sole></home-sole>
-    <home-radio></home-radio>
-    <home-mv></home-mv>
+    <home-swiper :list="swiperImgs"></home-swiper>
+    <home-navs :list ="navsDatas"></home-navs>
+    <home-recommend :list="recommendData"></home-recommend>
+    <home-sole :list="soleData"></home-sole>
+    <home-radio :list="radioData"></home-radio>
+    <home-mv :list="mvData"></home-mv>
   </div>
 </template>
 
@@ -18,10 +18,23 @@ import HomeRecommend from "./HomeComponents/Recommend";
 import HomeSole from "./HomeComponents/Sole";
 import HomeRadio from "./HomeComponents/Radio";
 import HomeMv from "./HomeComponents/Mv";
+import axios from "axios";
+import { getBanner, getSole, getPersonalized, getFM, getMv } from "API/GetData";
 export default {
   name: "Home",
   data() {
-    return {};
+    return {
+      swiperImgs: [],
+      soleData: [],
+      recommendData: [],
+      radioData: [],
+      mvData: [],
+      navsDatas: [
+        { navIiem: "歌单", navsIcon: "&#xe672;", id: 0 },
+        { navIiem: "每日歌曲推荐", navsIcon: "&#xe674;", id: 1 },
+        { navIiem: "云音乐热歌榜", navsIcon: "&#xe673;", id: 2 }
+      ]
+    };
   },
   components: {
     HomeHeader,
@@ -30,11 +43,49 @@ export default {
     HomeRecommend,
     HomeSole,
     HomeRadio,
-    HomeMv,
+    HomeMv
+  },
+  created() {
+    this._getBanner();
+    this._getSole();
+    this._getRecommend();
+    this._getFM();
+    this._getMv();
+  },
+  methods: {
+    _getBanner() {
+      getBanner().then(res => {
+        const list = res.data.banners;
+        this.swiperImgs = list.splice(0);
+      });
+    },
+    _getSole() {
+      getSole().then(res => {
+        let list = res.data.result;
+        this.soleData = list.splice(0);
+      });
+    },
+    _getRecommend() {
+      getPersonalized().then(res => {
+        let list = res.data.result;
+        this.recommendData = list.splice(0);
+      });
+    },
+    _getFM() {
+      getFM().then(res => {
+        let list = res.data.result;
+        this.radioData = list.splice(0);
+      });
+    },
+    _getMv() {
+            getMv().then(res => {
+                let list = res.data.result;
+                this.mvData = list.splice(0);
+            });
+        }
   }
 };
 </script>
 
 <style lang='stylus' scoped>
-
 </style>

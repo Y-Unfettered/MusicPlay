@@ -1,7 +1,7 @@
 <template>
   <div class="swiper">
     <swiper :options="swiperOption" ref="mySwiper">
-      <swiper-slide v-for="item in swiperImgs" :key="item.id">
+      <swiper-slide v-for="item in list" :key="item.id">
         <img class="swiper-img" :src="item.picUrl">
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
@@ -10,10 +10,11 @@
 </template>
 
 <script>
-import axios from 'axios'
-import {getBanner} from "../../../API/GetData";
 export default {
   name: "HomeSwiper",
+  props: {
+    list: Array
+  },
   data() {
     return {
       swiperOption: {
@@ -26,21 +27,8 @@ export default {
         autoplayDisableOnInteraction: false, //滑动后继续轮播
         loop: true //循环
       },
-      swiperImgs: [ ]
     };
   },
-  created() {
-    this._getBanner();
-  },
-  methods: {
-    _getBanner() {
-      getBanner().then(res => {
-        let list = res.data.banners;
-        this.swiperImgs = list.splice(0);
-        // console.log(this.swiperImgs)
-      });
-    }
-  }
 };
 </script>
 

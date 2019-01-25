@@ -1,6 +1,6 @@
 <template>
     <div class="Navs">
-        <router-link class="nasicon" v-for="item in navsDatas" :key="item.id" tag="div"
+        <router-link class="nasicon" v-for="item in list" :key="item.id" tag="div"
         :to="'/RankingList/'+item.id">
             <div class="nasiconbox">
                 <!-- v-for 循环出icon的unicode编码 使用v-html解决 -->
@@ -14,14 +14,11 @@
 <script>
 export default {
     name:'HomeNavs',
+    props: {
+        list: Array
+    },
     data(){
-        return{
-            navsDatas:[
-                {navIiem:"歌单",navsIcon:"&#xe672;",id:0},
-                {navIiem:"每日歌曲推荐",navsIcon:"&#xe674;",id:1},
-                {navIiem:"云音乐热歌榜",navsIcon:"&#xe673;",id:2},
-            ]
-        }
+        return{}
     }
 }
 </script>
