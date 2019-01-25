@@ -7,6 +7,7 @@
     <home-sole :list="soleData"></home-sole>
     <home-radio :list="radioData"></home-radio>
     <home-mv :list="mvData"></home-mv>
+    <home-loading v-if="this.$store.state.HomeDataLoadingCompleted"></home-loading>
   </div>
 </template>
 
@@ -18,6 +19,7 @@ import HomeRecommend from "./HomeComponents/Recommend";
 import HomeSole from "./HomeComponents/Sole";
 import HomeRadio from "./HomeComponents/Radio";
 import HomeMv from "./HomeComponents/Mv";
+import HomeLoading from "./../common/Loading"
 import axios from "axios";
 import { getBanner, getSole, getPersonalized, getFM, getMv } from "API/GetData";
 export default {
@@ -43,7 +45,8 @@ export default {
     HomeRecommend,
     HomeSole,
     HomeRadio,
-    HomeMv
+    HomeMv,
+    HomeLoading
   },
   created() {
     this._getBanner();
@@ -82,7 +85,19 @@ export default {
                 let list = res.data.result;
                 this.mvData = list.splice(0);
             });
+    },
+    DataLoadingCompletedState(){
+        if(!this.swiperImgs.length || !this.soleData.length || !this.recommendData.length  || !this.radioData.length || !this.mvData.length){
+          this.$store.state.HomeDataLoadingCompleted = true
+          this.$store.commit("setHomeDataLoadingCompleted",this.$store.state.HomeDataLoadingCompleted)
+        }else{
+          this.$store.state.HomeDataLoadingCompleted = false
+          this.$store.commit("setHomeDataLoadingCompleted",this.$store.state.HomeDataLoadingCompleted)
         }
+    }
+  },
+  beforeUpdate(){
+    this.DataLoadingCompletedState()
   }
 };
 </script>

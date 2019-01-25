@@ -14,7 +14,12 @@
 
 <script>
 export default {
-    name:'RankingListNav'
+    name:'RankingListNav',
+    data(){
+        return{
+
+        }
+    }
 }
 </script>
 

@@ -20,7 +20,7 @@
                     <li class="iconfont" v-if="this.$store.state.playState" @click="changeState()">&#xe62c;</li>
                     <li class="iconfont" v-else  @click="changeState()">&#xe62d;</li>
                     <li class="iconfont">&#xe632;</li>
-                    <li class="iconfont">&#xe615;</li>
+                    <li class="iconfont" @click="changeListState()">&#xe615;</li>
                 </ul>
             </div>
         </div>
@@ -37,9 +37,15 @@ export default {
         changeState(){
             this.$store.state.playState = !this.$store.state.playState
             this.$store.commit("setPlayState",this.$store.state.playState)
+        },
+        changeListState(){
+            this.$store.state.playListState = !this.$store.state.playListState
+            this.$store.commit("setplayListState",this.$store.state.playListState)
+            if(this.$store.state.playListState == true){
+                
+            }
         }
     }
-
 }
 </script>
 
