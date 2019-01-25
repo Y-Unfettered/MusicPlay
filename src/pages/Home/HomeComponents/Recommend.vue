@@ -4,7 +4,7 @@
     <div class="recommend-items">
       <swiper>
         <swiper-slide v-for="(page,index) in pages" :key="index">
-          <div class="recommend-item" v-for="item in page" :key="item.id">
+          <router-link class="recommend-item" v-for="item in page" :key="item.id" tag="div" :to="'/RankingList/'+item.id">
             <div class="recommend-item-img">
               <img class="recommend-item-imgSrc" :src="item.picUrl" alt>
               <div class="recommend-item-listen">
@@ -15,7 +15,7 @@
             <div class="recommend-item-reason">
               <span class="recommend-item-reason-span">{{item.name}}</span>
             </div>
-          </div>
+          </router-link>
         </swiper-slide>
       </swiper>
     </div>

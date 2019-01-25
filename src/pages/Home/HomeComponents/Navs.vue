@@ -1,12 +1,13 @@
 <template>
     <div class="Navs">
-        <div class="nasicon" v-for="item in navsDatas" :key="item.id">
+        <router-link class="nasicon" v-for="item in navsDatas" :key="item.id" tag="div"
+        :to="'/RankingList/'+item.id">
             <div class="nasiconbox">
                 <!-- v-for 循环出icon的unicode编码 使用v-html解决 -->
                 <span class="iconfont nacs-icons" v-html="item.navsIcon"></span>
             </div>
             <span class="navs-span">{{item.navIiem}}</span>
-        </div>
+        </router-link>
     </div>
 </template>
 
@@ -16,7 +17,7 @@ export default {
     data(){
         return{
             navsDatas:[
-                {navIiem:"私人FM",navsIcon:"&#xe65b;",id:0},
+                {navIiem:"歌单",navsIcon:"&#xe672;",id:0},
                 {navIiem:"每日歌曲推荐",navsIcon:"&#xe674;",id:1},
                 {navIiem:"云音乐热歌榜",navsIcon:"&#xe673;",id:2},
             ]
