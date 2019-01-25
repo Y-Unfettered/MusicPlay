@@ -1,8 +1,8 @@
 <template>
     <div class="header">
-        <router-link class="header-left" to="/">
+        <div class="header-left" @click="getBack">
             <div class="iconfont back-icon">&#xe62a;</div>
-        </router-link>
+        </div>
         <div class="header-music">
             <p>晴天</p>
             <p>周杰伦</p>
@@ -19,7 +19,9 @@ export default {
         }
     },
     methods:{
-        
+        getBack(){
+            this.$router.go(-1)
+        }
     }
 }
 </script>

@@ -9,6 +9,8 @@ import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 //axiox的引用
 import axios from 'axios'
+//vuex的注册
+import {store} from "./store/store";
 
 //进行基础的样式处理，保证样式的一致
 import "styles/reset.css";
@@ -28,6 +30,7 @@ axios.defaults.baseURL = 'https://obscure-inlet-76815.herokuapp.com';
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

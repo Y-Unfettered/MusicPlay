@@ -17,7 +17,7 @@
                 <ul>
                     <li class="iconfont">&#xe62e;</li>
                     <li class="iconfont">&#xe631;</li>
-                    <li class="iconfont" v-if="state" @click="changeState()">&#xe62c;</li>
+                    <li class="iconfont" v-if="this.$store.state.playState" @click="changeState()">&#xe62c;</li>
                     <li class="iconfont" v-else  @click="changeState()">&#xe62d;</li>
                     <li class="iconfont">&#xe632;</li>
                     <li class="iconfont">&#xe615;</li>
@@ -31,13 +31,12 @@
 export default {
     name:"PlayerInterface",
     data(){
-        return{
-            state:false
-        }
+        return{}
     },
     methods:{
         changeState(){
-            return this.state = !this.state
+            this.$store.state.playState = !this.$store.state.playState
+            this.$store.commit("setPlayState",this.$store.state.playState)
         }
     }
 

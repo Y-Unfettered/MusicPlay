@@ -1,13 +1,17 @@
 <template>
     <div class="banner">
-        <img src="" alt="">
+        <img :src="list" alt="">
         <p>根据你的音乐口味生成，每天6：00更新</p>
     </div>
 </template>
 
 <script>
+
 export default {
-    name:"RankingListBanner"
+    name:"RankingListBanner",
+    props: {
+        list: String
+    },
 }
 </script>
 
@@ -27,7 +31,7 @@ export default {
         position absolute
         bottom 0
         text-indent: 0.23rem;
-        color: rgba(80, 80, 80, 1);
+        color: #fff;
         font-size: 0.23rem;
         line-height: 0.79rem;
         text-align: left;

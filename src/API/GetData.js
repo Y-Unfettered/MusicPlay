@@ -33,6 +33,11 @@ export function getMv() {
     const url = '/personalized/mv'
     return axios.get(url)
 }
+export function getSonglist(id) {
+    const url = `/top/list?idx=${id}`
+    return axios.get(url)
+}
+
 
 export default class Song {
     constructor({ id, mid, singer, name, album, duration, image, url, aliaName }) {

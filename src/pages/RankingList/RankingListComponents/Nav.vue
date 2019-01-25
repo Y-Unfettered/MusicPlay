@@ -19,12 +19,13 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
+@import '~styles/varibles.styl';
 .nav
     width 100%
     height 1rem
     display: flex;
     line-height: 1rem;
-    background-color #ccc
+    background-color $bgColor
     color: #fff;
     .left-icon
         margin-left .1rem

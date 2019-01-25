@@ -30,9 +30,9 @@ export default {
       radioData: [],
       mvData: [],
       navsDatas: [
-        { navIiem: "歌单", navsIcon: "&#xe672;", id: 0 },
-        { navIiem: "每日歌曲推荐", navsIcon: "&#xe674;", id: 1 },
-        { navIiem: "云音乐热歌榜", navsIcon: "&#xe673;", id: 2 }
+        { navIiem: "云音乐新歌榜", navsIcon: "&#xe672;", id: 0 },
+        { navIiem: "云音乐飙升榜", navsIcon: "&#xe674;", id: 3 },
+        { navIiem: "云音乐热歌榜", navsIcon: "&#xe673;", id: 1 }
       ]
     };
   },
