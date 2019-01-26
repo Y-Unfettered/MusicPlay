@@ -9,7 +9,12 @@ export const store = new Vuex.Store({
         playState: false,
         playListState:false,
         HomeDataLoadingCompleted:true,
-        PlayListDataLoadingCompleted:true
+        PlayListDataLoadingCompleted:true,
+        RollTime:false,
+        getMusicList:{},
+        gitMusicSrc:{},
+        MusicPlaying:{}
+        
     },
     getters: {
         // 获取属性的状态
@@ -17,6 +22,10 @@ export const store = new Vuex.Store({
         playListState: state => state.playListState,
         HomeDataLoadingCompleted: state => state.HomeDataLoadingCompleted,
         PlayListDataLoadingCompleted: state => state.PlayListDataLoadingCompleted,
+        getMusicList: state => state.getMusicList,
+        getRollTime: state => state.RollTime,
+        gitMusicSrc: state => state.gitMusicSrc,
+        MusicPlaying: state => state.MusicPlaying,
         
 
     },
@@ -33,6 +42,18 @@ export const store = new Vuex.Store({
         },
         setPlayListDataLoadingCompleted(state, data) {
             state.PlayListDataLoadingCompleted = data
+        },
+        setgetMusicList(state, data) {
+            state.getMusicList = data
+        },
+        setRollTime(state, data) {
+            state.RollTime = data
+        },
+        setgitMusicSrc(state, data) {
+            state.gitMusicSrc = data
+        },
+        setMusicPlaying(state, data) {
+            state.MusicPlaying = data
         },
     },
     actions: {

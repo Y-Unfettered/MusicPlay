@@ -4,8 +4,8 @@
             <div class="iconfont back-icon">&#xe62a;</div>
         </div>
         <div class="header-music">
-            <p>晴天</p>
-            <p>周杰伦</p>
+            <p>{{this.$store.state.MusicPlaying.MusicName}}</p>
+            <p>{{this.$store.state.MusicPlaying.MusicPlayer}}</p>
         </div>
     </div>
 </template>
@@ -20,6 +20,8 @@ export default {
     },
     methods:{
         getBack(){
+            this.$store.state.playListState = false
+            this.$store.commit("setplayListState",this.$store.state.playListState)
             this.$router.go(-1)
         }
     }
@@ -30,6 +32,8 @@ export default {
 .header
     width 100%
     height 1rem
+    position fixed
+    top 0
     .header-left
         width 1rem
         height 1rem
@@ -40,9 +44,9 @@ export default {
             font-size .54rem
             color #fff
     .header-music
-        width 1rem
+        width 5rem
         height 1rem
-        padding-left 3rem
+        margin 0 auto 
         p 
             font-size: 0.32rem;
             line-height: .5rem;

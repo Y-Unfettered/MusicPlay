@@ -1,12 +1,10 @@
 <template>
-    <div class="interface">
+    <div class="interface" v-if="!this.$store.state.RollTime">
         <div class="interface-top">
             <div class="player-pointer">
                 <img src="https://music.163.com/m/s/img/needle-ip6.png?be4ebbeb6befadfcae75ce174e7db862" alt="">
             </div>
-            <div class="player-record">
-                <img src="" alt="">
-            </div>
+            <div class="player-record" :style="{ 'background': 'url(' + this.$store.state.MusicPlaying.MusicBG + ') no-repeat center center', 'background-size': '100% 100%'}"></div>
         </div>
         <div class="interface-bottom">
             <div class="ProgressBar">
@@ -24,10 +22,13 @@
                 </ul>
             </div>
         </div>
+        <audio ref="audio" @click="startPlayOrPause"  @pause="onPause" @play="onPlay" :src="this.$store.state.gitMusicSrc"></audio>
     </div>
 </template>
 
 <script>
+import axios from "axios";
+import { getMusicUrl } from "API/GetData";
 export default {
     name:"PlayerInterface",
     data(){
@@ -37,14 +38,42 @@ export default {
         changeState(){
             this.$store.state.playState = !this.$store.state.playState
             this.$store.commit("setPlayState",this.$store.state.playState)
+            this.startPlayOrPause()
         },
         changeListState(){
             this.$store.state.playListState = !this.$store.state.playListState
             this.$store.commit("setplayListState",this.$store.state.playListState)
-            if(this.$store.state.playListState == true){
-                
-            }
+        },
+        //控制音频的播放与暂停
+        startPlayOrPause () {
+            return this.$store.state.playState ? this.play() : this.pause()
+        },
+        // 播放音频
+        play () {
+            this.$refs.audio.play()
+        },
+        // 暂停音频
+        pause () {
+            this.$refs.audio.pause()
+        },
+        // 当音频播放
+        onPlay () {
+            this.$store.state.playState = true
+        },
+        // 当音频暂停
+        onPause () {
+            this.$store.state.playState = false
         }
+    },
+    mounted(){
+        // this.$store.commit("setMusicPlaying",)
+        // const id = this.$store.state.MusicPlaying.id
+        // getMusicUrl(id).then(res =>{
+        //         res.data.data.forEach(element => {
+        //             console.log(element.url)
+        //             this.$store.commit("setgitMusicSrc",element.url)
+        //         });
+        // })
     }
 }
 </script>
@@ -53,6 +82,8 @@ export default {
 .interface
     width 100%
     height 100%
+    position fixed
+    top 1rem;
     .interface-top
         width 100%
         height 9rem

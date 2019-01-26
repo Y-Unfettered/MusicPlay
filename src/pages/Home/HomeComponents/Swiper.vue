@@ -2,7 +2,7 @@
   <div class="swiper">
     <swiper :options="swiperOption" ref="mySwiper">
       <swiper-slide v-for="item in list" :key="item.id">
-        <img class="swiper-img" :src="item.picUrl">
+        <img class="swiper-img" :src="item.imageUrl">
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
@@ -42,8 +42,7 @@ export default {
 .swiper {
   overflow: hidden;
   width: 100%;
-  height: 0;
-  padding-bottom: 46%;
+  height 2.76rem
   background-color: $bgColor;
 }
 

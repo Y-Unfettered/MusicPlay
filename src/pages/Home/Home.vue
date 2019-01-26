@@ -54,6 +54,7 @@ export default {
     this._getRecommend();
     this._getFM();
     this._getMv();
+    this.getMusicList();
   },
   methods: {
     _getBanner() {
@@ -94,6 +95,17 @@ export default {
           this.$store.state.HomeDataLoadingCompleted = false
           this.$store.commit("setHomeDataLoadingCompleted",this.$store.state.HomeDataLoadingCompleted)
         }
+    },
+    getMusicList(){
+      axios.get('https://wd5641080783zkrsci.wilddogio.com/MusicList.json')
+          .then(res => this.playListState = res.data)
+          .then(data => {
+            let ListArray = []
+            for(let key in data){
+              ListArray.push(data[key])
+            }
+            this.$store.commit("setgetMusicList",ListArray)
+          })
     }
   },
   beforeUpdate(){

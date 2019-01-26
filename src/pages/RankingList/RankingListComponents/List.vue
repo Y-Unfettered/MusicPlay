@@ -1,6 +1,6 @@
 <template>
   <div class="list">
-    <div class="list-nav">
+    <div class="list-nav" @click="setMusicList">
       <div class="left-icon">
         <div class="iconfont play-icon">&#xe62d;</div>
       </div>
@@ -21,10 +21,35 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "RankingListList",
   props: {
-    list: Array
+    list: Array 
+  },
+  data(){
+    return{
+
+    }
+  },
+  methods:{
+    setMusicList(){
+      const MusicList = this.list
+      MusicList.forEach(el => {
+        const MusicItem = { 
+          id : el.id,
+          MusicName : el.al.name,
+          MusicPlayer : el.ar[0].name,
+          MusicBG : el.al.picUrl
+        }
+        axios.post('https://wd5641080783zkrsci.wilddogio.com/MusicList.json',MusicItem)
+          .then(function (response) {})
+          .catch(function (error) {
+            console.log(error);
+          });
+      });
+      console.log('set list 200')
+    },
   }
 };
 </script>

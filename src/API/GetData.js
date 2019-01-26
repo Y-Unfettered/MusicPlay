@@ -38,6 +38,11 @@ export function getSonglist(id) {
     return axios.get(url)
 }
 
+export function getMusicUrl(id) {
+    const url = `/song/url?id=${id}`
+    return axios.get(url)
+}
+
 
 export default class Song {
     constructor({ id, mid, singer, name, album, duration, image, url, aliaName }) {
