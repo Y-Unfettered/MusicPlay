@@ -88,7 +88,7 @@ export default {
             });
     },
     DataLoadingCompletedState(){
-        if(!this.swiperImgs.length || !this.soleData.length || !this.recommendData.length  || !this.radioData.length || !this.mvData.length){
+        if(!this.swiperImgs.length || !this.soleData.length || !this.recommendData.length  || !this.radioData.length || !this.mvData.length || !this.$store.state.getMusicList){
           this.$store.state.HomeDataLoadingCompleted = true
           this.$store.commit("setHomeDataLoadingCompleted",this.$store.state.HomeDataLoadingCompleted)
         }else{

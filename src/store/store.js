@@ -11,9 +11,12 @@ export const store = new Vuex.Store({
         HomeDataLoadingCompleted:true,
         PlayListDataLoadingCompleted:true,
         RollTime:false,
+        defaultIndex:0,
         getMusicList:{},
         gitMusicSrc:{},
-        MusicPlaying:{}
+        MusicPlaying:{},
+        stareTime:'',
+        endTime:''
         
     },
     getters: {
@@ -26,6 +29,9 @@ export const store = new Vuex.Store({
         getRollTime: state => state.RollTime,
         gitMusicSrc: state => state.gitMusicSrc,
         MusicPlaying: state => state.MusicPlaying,
+        defaultIndex: state => state.defaultIndex,
+        stareTime: state => state.stareTime,
+        endTime: state => state.endTime,
         
 
     },
@@ -54,6 +60,15 @@ export const store = new Vuex.Store({
         },
         setMusicPlaying(state, data) {
             state.MusicPlaying = data
+        },
+        setdefaultIndex(state, data) {
+            state.defaultIndex = data
+        },
+        setstareTime(state, data) {
+            state.stareTime = data
+        },
+        setendTime(state, data) {
+            state.endTime = data
         },
     },
     actions: {

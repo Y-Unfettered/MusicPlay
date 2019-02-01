@@ -26,7 +26,7 @@
         </div>
         <div class="list-content">
             <ul>
-                <li v-for="(item,index) in this.$store.state.getMusicList" :key="index" @click="getMusicID(item.id)">
+                <li v-for="(item,index) in this.$store.state.getMusicList" :key="index" @click="getMusicID(item.id,index)">
                     <div class="list-index">
                        <p>{{index + 1}}</p> 
                     </div>
@@ -65,18 +65,17 @@ export default {
                 this.$store.commit("setRollTime",this.$store.state.RollTime)
             }
         },
-        getMusicID(id){
-            getMusicUrl(id).then(res =>{
+        getMusicID(id,index){
+            console.log(id,index)
+            var playing = this.$store.state.getMusicList[index];
+            this.$store.commit("setMusicPlaying", playing);
+            getMusicUrl(id).then(res => {
                 res.data.data.forEach(element => {
-                    console.log(element.url)
-                    this.$store.commit("setgitMusicSrc",element.url)
+                    this.$store.commit("setgitMusicSrc", element.url);
                 });
             })
             this.$store.state.playListState = !this.$store.state.playListState
             this.$store.commit("setplayListState",this.$store.state.playListState)
-        },
-        _getMusicUrl(id){
-           
         }
     },
     created(){
